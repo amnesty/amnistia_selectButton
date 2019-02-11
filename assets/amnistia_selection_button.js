@@ -5,17 +5,19 @@
       sync_selectButton_and_select(jQuery(this).attr('id'));
     });
 
-    jQuery('.selectButton-input').on('click', function () {
+    if ( $( ".selectButton-input" ).length ) {
 
-//        $('#selectButton-selected').val(this.id).trigger('change');
-        $('.selectButton-input').each(function () {
-        $(this).removeClass('value-selected');
-      });
-      $(this).addClass('value-selected');
+        jQuery('.selectButton-input').on('click', function () {
 
-      sync_selectButton_and_select(jQuery(this).parents('.selectButton-container').attr('id'));
-    });
+            //$('#selectButton-selected').val(this.id).trigger('change');
+            $('.selectButton-input').each(function () {
+            $(this).removeClass('value-selected');
+          });
+          $(this).addClass('value-selected');
 
+          sync_selectButton_and_select(jQuery(this).parents('.selectButton-container').attr('id'));
+        });
+    }
 
     function sync_selectButton_and_select(selectButton_id) {
       console.log(selectButton_id);
